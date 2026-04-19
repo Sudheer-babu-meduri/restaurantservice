@@ -14,7 +14,7 @@ import com.example.restaurantservice.model.Restaurant;
 import com.example.restaurantservice.service.RestaurantService;
 
 @RestController
-@RequestMapping("restaurant")
+@RequestMapping("/restaurant")
 public class RestaurantController {
   
 	 private final RestaurantService restaurantService;
@@ -24,25 +24,25 @@ public class RestaurantController {
 	    }
 
 	    // Add a new restaurant
-	    @PostMapping("addRes")
+	    @PostMapping("/addRes")
 	    public Restaurant addRestaurant(@RequestBody Restaurant restaurant) {
 	        return restaurantService.addRestaurant(restaurant);
 	    }
 
 	    // Get all restaurants
-	    @GetMapping("getAllRes")
+	    @GetMapping("/getAllRes")
 	    public List<Restaurant> getAllRestaurants() {
 	        return restaurantService.getAllRestaurants();
 	    }
 
 	    // Get restaurant by ID
-	    @GetMapping("getByID/{id}")
+	    @GetMapping("/getByID/{id}")
 	    public Restaurant getRestaurantById(@PathVariable int id) {
 	        return restaurantService.getRestaurantById(id);
 	    }
 
 	    // Delete a restaurant
-	    @DeleteMapping("deleteByID/{id}")
+	    @DeleteMapping("/deleteByID/{id}")
 	    public String deleteRestaurant(@PathVariable int id) {
 	        restaurantService.deleteRestaurant(id);
 	        return "Restaurant with ID " + id + " deleted successfully!";

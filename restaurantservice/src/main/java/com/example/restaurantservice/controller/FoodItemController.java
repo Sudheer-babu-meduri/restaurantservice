@@ -15,30 +15,30 @@ import com.example.restaurantservice.service.FoodItemsService;
 @RequestMapping("foodItem")
 public class FoodItemController {
 
-	 private final FoodItemsService foodItemsService;
+	private final FoodItemsService foodItemsService;
 
-	    public FoodItemController(FoodItemsService foodItemsService) {
-	        this.foodItemsService = foodItemsService;
-	    }
+    public FoodItemController(FoodItemsService foodItemsService) {
+        this.foodItemsService = foodItemsService;
+    }
 
-	    // Add food item to a restaurant
-	    @PostMapping("/restaurant/{restaurantId}")
-	    public FoodItems addFoodItemToRestaurant(@PathVariable int restaurantId,
-	                                             @RequestBody FoodItems foodItem) {
-	        return foodItemsService.addFoodItemToRestaurant(restaurantId, foodItem);
-	    }
+    // Add food item to a restaurant
+    @PostMapping("/restaurant/{restaurantId}")
+    public FoodItems addFoodItemToRestaurant(@PathVariable int restaurantId,
+                                             @RequestBody FoodItems foodItem) {
+        return foodItemsService.addFoodItemToRestaurant(restaurantId, foodItem);
+    }
 
-	    // Get all food items for a restaurant
-	    @GetMapping("/restaurant/{restaurantId}")
-	    public List<FoodItems> getFoodItemsByRestaurant(@PathVariable int restaurantId) {
-	        return foodItemsService.findByRestaurantId(restaurantId);
-	    }
+    // Get all food items for a restaurant
+    @GetMapping("/restaurant/{restaurantId}")
+    public List<FoodItems> getFoodItemsByRestaurant(@PathVariable int restaurantId) {
+        return foodItemsService.findByRestaurantId(restaurantId);
+    }
 
-	    // Delete a food item
-	    @DeleteMapping("/{foodItemId}")
-	    public String deleteFoodItem(@PathVariable int foodItemId) {
-	        foodItemsService.deleteFoodItem(foodItemId);
-	        return "Food item with ID " + foodItemId + " deleted successfully!";
-	    }
+    // Delete a food item
+    @DeleteMapping("/{foodItemId}")
+    public String deleteFoodItem(@PathVariable int foodItemId) {
+        foodItemsService.deleteFoodItem(foodItemId);
+        return "Food item with ID " + foodItemId + " deleted successfully!";
+    }
 	
 }
